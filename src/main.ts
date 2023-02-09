@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 8001;
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.use(morgan('dev'));
-  app.use(cors());
+  app.use(cors({
+    origin: '*'
+  }));
   app.use(helmet());
   app.use(session({
     secret: 'amazingcodingofnestjs',

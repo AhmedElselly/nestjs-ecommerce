@@ -15,6 +15,7 @@ export class UsersController {
 
   @Post('/login')
   login(@Req() req: Request, @Res() res: Response) {
+    console.log(req.body)
     return this.usersService.login(req, res);
   }
 
