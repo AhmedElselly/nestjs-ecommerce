@@ -3,7 +3,7 @@ import mongoose, {
   PassportLocalModel,
   Schema,
 } from 'mongoose';
-import * as passportLocalMongoose from 'passport-local-mongoose';
+import passportLocalMongoose from 'passport-local-mongoose';
 
 export const userSchema = new Schema(
   {
