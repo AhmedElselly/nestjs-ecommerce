@@ -2,10 +2,10 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 // import * as morgan from 'morgan';
 import helmet from 'helmet';
-import * as cors from 'cors';
-import * as passport from 'passport';
+import cors from 'cors';
+import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
-import * as session from 'express-session';
+import session from 'express-session';
 import UserModel from './schemas/user';
 
 const PORT = process.env.PORT || 8001;
