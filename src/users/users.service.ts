@@ -4,13 +4,15 @@ import { InjectModel } from '@nestjs/mongoose';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import UserModel from 'src/schemas/user';
+import {UserDocument} from 'src/interfaces/user.interface';
 // import * as jwt from 'jsonwebtoken';
 import {JwtService} from '@nestjs/jwt';
+import { Model } from 'mongoose';
 
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel('User') private user: typeof UserModel, private jwt: JwtService){}
+  constructor(@InjectModel('User') private user: UserDocument, private jwt: JwtService){}
   
   async register(createUserDto: CreateUserDto, res): Promise<any> {
     const user = new this.user(createUserDto);

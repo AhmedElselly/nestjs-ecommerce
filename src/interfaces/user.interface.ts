@@ -1,6 +1,6 @@
 import { PassportLocalDocument, PassportLocalModel } from "mongoose";
 
-interface UserDocument extends PassportLocalDocument {
+export interface UserDocument extends PassportLocalModel<PassportLocalDocument> {
     email: string;
     username: string;
 }
