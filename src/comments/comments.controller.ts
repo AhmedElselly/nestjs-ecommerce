@@ -4,8 +4,8 @@ import { Model } from 'mongoose';
 import { CommentsService } from './comments.service';
 import { CreateCommentDto } from './dto/create-comment.dto';
 import { UpdateCommentDto } from './dto/update-comment.dto';
-import CommentModel from 'src/schemas/comment';
-import { JwtAuthGuard } from 'src/auth/jwt_auth.guard';
+import CommentModel from '../schemas/comment';
+import { JwtAuthGuard } from '../auth/jwt_auth.guard';
 
 @Controller('api/comments')
 export class CommentsController {

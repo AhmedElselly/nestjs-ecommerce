@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { JwtAuthGuard } from 'src/auth/jwt_auth.guard';
-import { CreatePostDto } from 'src/dtos/post.dto';
+import { JwtAuthGuard } from '../auth/jwt_auth.guard';
+import { CreatePostDto } from '../dtos/post.dto';
 import { PostsService } from './posts.service';
 
 @Controller('api/posts')

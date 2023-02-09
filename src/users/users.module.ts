@@ -3,9 +3,9 @@ import { Module } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UsersController } from './users.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { userSchema } from 'src/schemas/user';
+import { userSchema } from '../schemas/user';
 import { JwtModule } from '@nestjs/jwt';
-import { JwtStrategy } from 'src/auth/jwt_strategy.strategy';
+import { JwtStrategy } from '../auth/jwt_strategy.strategy';
 
 @Module({
   imports: [

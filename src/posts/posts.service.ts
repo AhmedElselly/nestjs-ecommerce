@@ -4,8 +4,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { ParamsDictionary } from 'express-serve-static-core';
 import { Model } from 'mongoose';
 import { ParsedQs } from 'qs';
-import { PostModel } from 'src/interfaces/post.interface';
-import { CreatePostDto } from 'src/dtos/post.dto';
+import { PostModel } from '../interfaces/post.interface';
+import { CreatePostDto } from '../dtos/post.dto';
 
 @Injectable()
 export class PostsService {
