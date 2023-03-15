@@ -9,8 +9,8 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Post('/register')
-  create(@Body() createUserDto: CreateUserDto, @Res() res: Response) {
-    return this.usersService.register(createUserDto, res);
+  create(@Req() req: Request, @Res() res: Response) {
+    return this.usersService.register(req, res);
   }
 
   @Post('/login')

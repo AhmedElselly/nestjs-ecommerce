@@ -12,17 +12,18 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel('User') private user: UserDocument, private jwt: JwtService){}
+  constructor(@InjectModel('User') private user: typeof UserModel, private jwt: JwtService){}
   
-  async register(createUserDto: CreateUserDto, res): Promise<any> {
-    const user = new this.user(createUserDto);
-    await user.setPassword(createUserDto.password);
+  async register(req, res): Promise<any> {
+    const user = new this.user(req.body);
+    await user.setPassword(req.body.password);
     await user.save();
     return res.json(user);
   }
 
   async login(req, res): Promise<any> {
-    const foundUser = await this.user.findOne({email: req.body.email});
+    const email = req.body.email.toLowerCase().replace(' ', '');
+    const foundUser = await this.user.findOne({email});
     if(!foundUser) return res.status(400).json({message: 'User with that email doesn\'t exist! Please register.'});
     const {user} = await this.user.authenticate()(req.body.email, req.body.password);
     if(!user) return res.status(400).json({message: 'Email and password don\'t match!'});

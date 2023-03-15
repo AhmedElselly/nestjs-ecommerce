@@ -19,6 +19,7 @@ export class PostsController {
     return post;
   }
 
+  // @UseGuards(JwtAuthGuard)
   @Get()
   async index(@Req() req: Request, @Res() res: Response): Promise<any> {
     const posts = await this.postsService.index(req, res);
